@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const eventId = req.query.eventId;
 
     if (req.method === 'GET') {
-        const data = collection.find(item => item => item.eventId === eventId).;
+        const data = collection.find(item => item.eventId === eventId);
 
         console.log(eventId)
         console.log(data)
