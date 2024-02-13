@@ -1,30 +1,24 @@
 import path from "path";
 import * as fs from "fs";
-import {NextApiRequest, NextApiResponse} from "next";
+import { NextApiRequest, NextApiResponse } from "next";
+import { Collection, MongoClient } from "mongodb";
 
-function buildCommentPath() {
-    return path.join(process.cwd(), 'data', 'comments.json');
-}
-
-function getComments(filepath: String) {
-    const data = fs.readFileSync(filepath, 'utf-8');
-    return JSON.parse(data);
-}
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-    const filepath = buildCommentPath();
-    const data = getComments(filepath);
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const url = 'mongodb://localhost:27017/event-comments';
+    const client = await MongoClient.connect(url);
+    const db = client.db();
+    const collection = db.collection('comments');
     const eventId = req.query.eventId;
 
     if (req.method === 'GET') {
-        const comments = data.filter(item => item.eventId === eventId);
+        const data = collection.find(item => item => item.eventId === eventId).;
 
         console.log(eventId)
-        console.log(comments)
+        console.log(data)
 
         res
             .status(200)
-            .json({comments: comments});
+            .json({ comments: data });
     }
 
     if (req.method === 'POST') {
@@ -39,10 +33,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             time: time
         };
 
-        data.push(newComment);
-        fs.writeFileSync(filepath, JSON.stringify(data));
+        await collection.insertOne(newComment);
+
+        client.close();
         res
             .status(201)
-            .json({message: 'Success', comment: newComment});
+            .json({ message: 'Success', comment: newComment });
     }
 }
