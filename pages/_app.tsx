@@ -13,7 +13,9 @@ export default function App({Component, pageProps}: AppProps) {
                 <SearchContextProvider>
                     <Head>
                         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                        <title>Mt</title>
+                        <title>NextJS Events</title>
+                        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
+                        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"/>
                     </Head>
                     <Header/>
                     <Component {...pageProps} />

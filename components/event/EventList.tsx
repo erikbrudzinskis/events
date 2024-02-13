@@ -1,11 +1,16 @@
-import EventItem from "@/components/EventItem";
+import EventItem from "@/components/event/EventItem";
 import MyEvent from "@/models/MyEvent";
 
 export default function EventList(props) {
+
+    if (!props.customEvents) {
+        return <p>Loading...</p>
+    }
+
     return (
         <>
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                {props.customEvents.map((customEvent: MyEvent) => {
+            <div className='blog-posts-wrap'>
+                {JSON.parse(props.customEvents).map((customEvent: MyEvent) => {
                     return <EventItem
                         key={customEvent.id}
                         id={customEvent.id}
