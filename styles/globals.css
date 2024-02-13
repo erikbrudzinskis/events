@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Open Sans', 'Lato', sans-serif;
+  font-family: "Open Sans", "Lato", sans-serif;
 }
 
 h1,
@@ -15,7 +15,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .card-img-top {
@@ -24,20 +24,16 @@ h6 {
   object-fit: cover;
 }
 
-.card{
-
+.card {
   background-color: #fff;
   border: none;
 }
 
-.form-color{
-
+.form-color {
   background-color: #fafafa;
-
 }
 
-.form-control{
-
+.form-control {
   height: 48px;
   border-radius: 25px;
 }
@@ -51,7 +47,7 @@ h6 {
   text-indent: 10px;
 }
 
-.c-badge{
+.c-badge {
   background-color: #35b69f;
   color: white;
   height: 20px;
@@ -64,18 +60,15 @@ h6 {
   margin-top: 2px;
 }
 
-.comment-text{
+.comment-text {
   font-size: 13px;
 }
 
-.wish{
-
-  color:#35b69f;
+.wish {
+  color: #35b69f;
 }
 
-
-.user-feed{
-
+.user-feed {
   font-size: 14px;
   margin-top: 12px;
 }
@@ -88,7 +81,7 @@ h6 {
 h2,
 p,
 .link {
-  font-family: 'roboto', sans-serif;
+  font-family: "roboto", sans-serif;
 }
 
 .link {
@@ -112,8 +105,8 @@ p,
   position: relative;
   width: 400px;
   background-color: #fff;
-  box-shadow: 0px 2px 20px rgba(0,0,0,.25);
-  transition: all .25s;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s;
   top: 0;
   border-radius: 10px;
   overflow: hidden;
@@ -121,7 +114,7 @@ p,
 
 .post-wrap:hover {
   top: 2px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
 .post-image {
@@ -147,7 +140,7 @@ p,
 }
 
 .post-meta {
-  color: #7B7B7B;
+  color: #7b7b7b;
 }
 
 .post-meta b {
@@ -155,21 +148,21 @@ p,
 }
 
 .post-title {
-  color: #444;
+  color: #407ba7;
   font-size: 20px;
   padding: 5px 0 10px 0;
 }
 
 .post-text {
-  color: #7B7B7B;
+  color: #7b7b7b;
 }
 
 .post-body-secondary {
-  border-top: 1px solid #ECECEC;
+  border-top: 1px solid #ececec;
 }
 
 .post-category {
-  color: #7B7B7B;
+  color: #7b7b7b;
   padding: 15px 0 10px 0;
 }
 
@@ -182,12 +175,12 @@ p,
 
 .button {
   position: relative;
-  background-color: #3089DB;
+  background-color: #407ba7;
   padding: 20px 60px 20px 60px;
-  box-shadow: 0px 6px 20px rgba(48,137,219,.60);
-  transition: all .25s;
+  box-shadow: 0px 6px 20px rgba(48, 137, 219, 0.6);
+  transition: all 0.25s;
   top: 0;
-  border-radius: 10px;
+  border-radius: 30px;
 
   color: #fff;
   text-transform: uppercase;
@@ -195,33 +188,97 @@ p,
 }
 
 .button:hover {
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(48,137,219,.60);
+  border-radius: 50px;
+  box-shadow: 0px 2px 10px rgba(48, 137, 219, 0.6);
   top: 2px;
 }
 
 header {
-  background: #CFC7D2;
-  color: #fff
+  background: #407ba7;
+  color: #fff;
+  padding: 0 20px !important;
 }
 
-.navbar-nav>li>a, .navbar-nav>li>button {
-  color: #fff
+.nav-item {
+  margin: 0 20px;
 }
 
-.navbar-nav>li:hover {
-  border-bottom: 1px solid #fff
+.navbar-nav > li > a,
+.navbar-nav > li > button {
+  color: #fff;
 }
 
-.navbar-nav>.active {
-  border-bottom: 1px solid #fff
+.navbar-nav > li > a:hover,
+.navbar-nav > li > button:hover {
+  color: #daebff;
+}
+
+.navbar-nav > li:hover {
+  border-bottom: 1px solid #daebff;
+}
+
+.navbar-nav > .active {
+  border-bottom: 1px solid #fff;
 }
 
 .navbar-brand-events {
-  font-family: 'Protest Revolution', sans-serif !important;
-  color: #FED766 !important;
+  color: #daebff !important;
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .navbar-brand-events:hover {
   color: #fff !important;
+}
+
+.pt-3 {
+  color: #407ba7;
+  margin: 40px 0;
+  font-weight: 600 !important;
+}
+
+.DatePicker_selection__tPNtL {
+  background: #f2f3f4 !important;
+  color: #4d4d4d !important;
+  border: 1px #4d4d4d !important;
+}
+
+/* Card inside date picker */
+
+.col-3 {
+  gap: 15px;
+  padding: 30px !important;
+  box-shadow: 0 2px 10px rgba(192, 206, 222, 0.6);
+  border-radius: 10px;
+  width: 30% !important;
+}
+
+.d-flex h2 {
+  color: #407ba7;
+  text-align: center;
+}
+
+.col-3 img {
+  border-radius: 10px;
+  height: auto;
+  width: 100%;
+}
+
+/* Comments section */
+.col-md-7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100% !important;
+}
+
+.visible {
+  width: 50%;
+}
+
+.c-badge,
+.btn-primary {
+  background: #007b86 !important;
+  border: none !important;
 }
