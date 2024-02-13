@@ -4,14 +4,14 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Collection, MongoClient } from "mongodb";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const url = 'mongodb://localhost:27017/event-comments';
+    const url = 'mongodb://localhost:27017/events';
     const client = await MongoClient.connect(url);
     const db = client.db();
     const collection = db.collection('comments');
     const eventId = req.query.eventId;
 
     if (req.method === 'GET') {
-        const data = collection.find(item => item.eventId === eventId);
+        const data = await collection.find( {eventId: eventId} ).sort({ _id: -1}).toArray();
 
         console.log(eventId)
         console.log(data)
@@ -35,9 +35,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         await collection.insertOne(newComment);
 
-        client.close();
         res
             .status(201)
             .json({ message: 'Success', comment: newComment });
     }
+
+    client.close();
 }
