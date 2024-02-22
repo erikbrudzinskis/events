@@ -40,14 +40,14 @@ export default function CommentList(props) {
                             />
 
                             <div className="mt-2">
-                                {comments.map(item => (
+                                {comments ? comments.map(item => (
                                     <CommentItem
                                         key={item.time}
                                         email={item.email}
                                         comment={item.comment}
                                         time={item.time}
                                     />
-                                ))}
+                                )) : null}
                             </div>
 
                         </div>
