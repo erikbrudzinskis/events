@@ -10,6 +10,10 @@ async function insertDocument(collection, document) {
     await collection.insertOne(document);
 }
 
+async function getDocuments(collection, eventId) {
+    return await collection.find( {eventId: eventId} ).sort({ _id: -1}).toArray();
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     let client;
     try {
@@ -23,7 +27,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const eventId = req.query.eventId;
 
     if (req.method === 'GET') {
-        const data = await collection.find( {eventId: eventId} ).sort({ _id: -1}).toArray();
+        let data;
+        try {
+            data = await getDocuments(collection, eventId);
+            client.close();
+        } catch (error) {
+            res.status(500).json({message: 'Getting data failed'});
+        }
 
         res
             .status(200)
